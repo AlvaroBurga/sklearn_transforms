@@ -26,6 +26,7 @@ class Normalizate():
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         scaler = preprocessing.MinMaxScaler()
+        #Si cambio
         data = X.copy()
         xfeatures = data.iloc[:,:-1]
         ar_Norm = preprocessing.MinMaxScaler(xfeatures)
