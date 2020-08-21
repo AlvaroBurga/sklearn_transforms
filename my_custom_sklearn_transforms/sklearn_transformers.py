@@ -15,7 +15,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
         # Retornamos um novo dataframe sem as colunas indesejadas
         return data.drop(labels=self.columns, axis='columns')
     
-from sklearn.preprocessing import MinMaxScaler   
 # All sklearn Transforms must have the `transform` and `fit` methods
 class Normalizate():
     def __init__(self):
@@ -26,10 +25,10 @@ class Normalizate():
     
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        scaler = MinMaxScaler()
+        scaler = pre.MinMaxScaler()
         data = X.copy()
         xfeatures = data.iloc[:,:-1]
-        ar_Norm = preprocessing.MinMaxScaler(xfeatures)
+        ar_Norm = pre.MinMaxScaler(xfeatures)
         scaler.fit(xfeatures)
         ar_Norm=scaler.transform(xfeatures)
         df_Norm= pd.DataFrame(ar_Norm, columns=df_data_3.columns[:-1])
