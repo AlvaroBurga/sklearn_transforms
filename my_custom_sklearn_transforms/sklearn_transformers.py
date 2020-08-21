@@ -1,5 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from sklearn import preprocessing as pre
+from sklearn.preprocessing  import MinMaxScaler
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
