@@ -25,7 +25,7 @@ class Normalizate():
     
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        scaler = preprocessing.MinMaxScaler()
+        scaler = MinMaxScaler()
         #Si cambio
         data = X.copy()
         xfeatures = data.iloc[:,:-1]
