@@ -28,6 +28,7 @@ class Normalizate():
         # Primero copiamos el dataframe de datos de entrada 'X'
         from sklearn import preprocessing as pre
         from sklearn.preprocessing  import MinMaxScaler
+        import pandas as pd
         scaler = pre.MinMaxScaler()
         #Si cambio
         data = X.copy()
