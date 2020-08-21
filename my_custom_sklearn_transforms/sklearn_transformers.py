@@ -25,10 +25,10 @@ class Normalizate():
     
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        scaler = pre.MinMaxScaler()
+        scaler = preprocessing.MinMaxScaler()
         data = X.copy()
         xfeatures = data.iloc[:,:-1]
-        ar_Norm = pre.MinMaxScaler(xfeatures)
+        ar_Norm = preprocessing.MinMaxScaler(xfeatures)
         scaler.fit(xfeatures)
         ar_Norm=scaler.transform(xfeatures)
         df_Norm= pd.DataFrame(ar_Norm, columns=df_data_3.columns[:-1])
