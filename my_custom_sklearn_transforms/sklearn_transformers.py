@@ -26,17 +26,14 @@ class Normalizate():
     
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        from sklearn import preprocessing as pre
+        from sklearn import preprocessing
         from sklearn.preprocessing  import MinMaxScaler
-        import pandas as pd
-        scaler = pre.MinMaxScaler()
-        #Si cambio
+        import numpy as np
+        scaler = MinMaxScaler()
         data = X.copy()
-        xfeatures = data.iloc[:,:-1]
-        ar_Norm = pre.MinMaxScaler(xfeatures)
+        xfeatures = data[:,:-1]
+        ar_Norm = preprocessing.MinMaxScaler(xfeatures)
         scaler.fit(xfeatures)
         ar_Norm=scaler.transform(xfeatures)
-        df_Norm= pd.DataFrame(ar_Norm, columns=df_data_3.columns[:-1])
-        df_data_4 = pd.concat([df_Norm, df_data_3.iloc[:,-1:]], axis=1)
-        # Devolvemos el data frame con los datos normalizados
-        return df_data_4
+        ar_Norm2=np.concatenate((ar_Norm,data[:,-1:]),axis=1)
+        return ar_Norm2
