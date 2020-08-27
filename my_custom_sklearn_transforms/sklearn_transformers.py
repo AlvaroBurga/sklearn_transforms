@@ -37,3 +37,20 @@ class Normalizate():
         ar_Norm=scaler.transform(xfeatures)
         ar_Norm2=np.concatenate((ar_Norm,data[:,-1:]),axis=1)
         return ar_Norm2
+
+class LlenarMedia():
+    def __init__(self):
+        self = self
+
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, d):
+        # Primero copiamos el dataframe de datos de entrada 'd'
+        data = d.copy()
+        x=data[:,:-1]
+        y=data[:,[-1]]
+        si.fit(X=x)
+        x=si.transform(X=x)
+        data=np.concatenate((x,y),axis=1)
+        return data
