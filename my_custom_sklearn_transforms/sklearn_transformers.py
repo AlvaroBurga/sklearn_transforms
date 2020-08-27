@@ -1,6 +1,7 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn import preprocessing as pre
 from sklearn.preprocessing  import MinMaxScaler
+from sklearn.utils import resample
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
@@ -53,4 +54,30 @@ class LlenarMedia():
         si.fit(X=x)
         x=si.transform(X=x)
         data=np.concatenate((x,y),axis=1)
+        return data
+
+    
+class NivelarDatos():
+    def __init__(self):
+        self = self
+
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, data):
+        # Primero copiamos el dataframe de datos de entrada 'X'
+        c=data[:,-1]=='Aceptado'
+        b=data
+        i=0
+        aceptado=[]
+        sospechoso=[]
+        for mayor in c:
+            if(mayor): aceptado.append(b[i,:])
+            else: sospechoso.append(b[i,:])
+            i=i+1
+        la=len(aceptado)
+        sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
+        aceptado=np.asarray(aceptado)
+        sospechoso=np.asarray(sospechoso)
+        data=np.concatenate((aceptado,sospechoso))
         return data
