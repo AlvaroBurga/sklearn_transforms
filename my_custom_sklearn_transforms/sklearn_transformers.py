@@ -71,8 +71,8 @@ class NivelarDatos():
         i=0
         aceptado=[]
         sospechoso=[]
-        for mayor in c:
-            if(mayor): aceptado.append(b[i,:])
+        for mayor in range(len(data[:,1])):
+            if(data[mayor,-1]=='Aceptado'): aceptado.append(b[i,:])
             else: sospechoso.append(b[i,:])
             i=i+1
         la=len(aceptado)
