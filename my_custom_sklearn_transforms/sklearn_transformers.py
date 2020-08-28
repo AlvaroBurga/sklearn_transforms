@@ -34,7 +34,7 @@ class LlenarMedia():
         data=np.concatenate((x,y),axis=1)
         return data
 
-class smoote():
+class smoote(BaseEstimator, TransformerMixin):
     def __init__(self):
         self = self
 
