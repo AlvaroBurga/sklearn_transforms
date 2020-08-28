@@ -87,5 +87,6 @@ class NivelarDatos():
         aceptado=np.asarray(aceptado)
         sospechoso=np.asarray(sospechoso)
         fin=np.concatenate((aceptado,sospechoso))
+        fin.reshape(1, -1)
         return fin
 
