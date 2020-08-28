@@ -49,7 +49,7 @@ class smoote():
         data=d.copy()
         X=d[:,:-1]
         y=d[:,-1]
-        oversample = SMOTE(k_neighbors=1)
+        oversample = SMOTE()
         X, y = oversample.fit_resample(X, y)
         y=np.row_stack(y)
         data=np.concatenate((X, y),axis=1)
