@@ -67,7 +67,6 @@ class NivelarDatos():
     
     def transform(self, data):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        c=data[:,-1]=='Aceptado'
         b=data
         i=0
         aceptado=[]
