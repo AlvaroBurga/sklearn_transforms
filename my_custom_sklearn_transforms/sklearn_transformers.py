@@ -2,6 +2,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn import preprocessing as pre
 from sklearn.preprocessing  import MinMaxScaler
 from sklearn.utils import resample
+import numpy as np
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
