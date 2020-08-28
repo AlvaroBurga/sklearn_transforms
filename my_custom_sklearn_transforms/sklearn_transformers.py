@@ -81,14 +81,14 @@ class NivelarDatos():
         # Primero copiamos el dataframe de datos de entrada 'X'
         b=data
         i=0
-        aceptado=[]
-        sospechoso=[]
-        for mayor in range(len(data[:,1])):
-            boolean=(data[mayor,-1]=='Aceptado')
-            if(boolean): aceptado.append(b[i,:])
-            else: sospechoso.append(b[i,:])
-            i=i+1
-        la=len(aceptado)
-        sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
-        data=aceptado+sospechoso
+        #aceptado=[]
+        #sospechoso=[]
+        #for mayor in range(len(data[:,1])):
+         #   boolean=(data[mayor,-1]=='Aceptado')
+          #  if(boolean): aceptado.append(b[i,:])
+           # else: sospechoso.append(b[i,:])
+            #i=i+1
+        #la=len(aceptado)
+        #sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
+        #data=aceptado+sospechoso
         return data
