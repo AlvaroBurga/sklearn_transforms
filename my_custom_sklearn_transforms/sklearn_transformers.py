@@ -13,7 +13,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
-        b=X.copy()
+        b= X.copy()
         i=0
         aceptado=[]
         sospechoso=[]
@@ -26,28 +26,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
         sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
         data=aceptado+sospechoso
         return data
-    
-# All sklearn Transforms must have the `transform` and `fit` methods
-class Normalizate():
-    def __init__(self):
-        self.columns = "a"
-
-    def fit(self, X, y=None):
-        return self
-    
-    def transform(self, X):
-        # Primero copiamos el dataframe de datos de entrada 'X'
-        from sklearn import preprocessing
-        from sklearn.preprocessing  import MinMaxScaler
-        import numpy as np
-        scaler = MinMaxScaler()
-        data = X.copy()
-        xfeatures = data[:,:-1]
-        ar_Norm = preprocessing.MinMaxScaler(xfeatures)
-        scaler.fit(xfeatures)
-        ar_Norm=scaler.transform(xfeatures)
-        ar_Norm2=np.concatenate((ar_Norm,data[:,-1:]),axis=1)
-        return ar_Norm2
 
 class LlenarMedia():
     def __init__(self):
