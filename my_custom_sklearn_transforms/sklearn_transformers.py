@@ -80,8 +80,7 @@ class NivelarDatos():
         return self
     
     def transform(self, data):
-        # Primero copiamos el dataframe de datos de entrada 'X'
-        b=data
+        b=data.copy()
         i=0
         aceptado=[]
         sospechoso=[]
