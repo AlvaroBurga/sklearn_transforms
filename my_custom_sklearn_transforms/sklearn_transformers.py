@@ -86,6 +86,6 @@ class NivelarDatos():
         sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
         aceptado=np.asarray(aceptado)
         sospechoso=np.asarray(sospechoso)
-        data=np.concatenate((aceptado,sospechoso))
-        return data
+        fin=np.concatenate((aceptado,sospechoso))
+        return fin
 
