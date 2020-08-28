@@ -71,9 +71,17 @@ class NivelarDatos():
     def fit(self, X, y=None):
         return self
     
+from sklearn.utils import resample
+class NivelarDatos():
+    def __init__(self):
+        self = self
+
+    def fit(self, X, y=None):
+        return self
+    
     def transform(self, data):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        b=data.reshape(1, -1)
+        b=data
         i=0
         aceptado=[]
         sospechoso=[]
@@ -84,7 +92,6 @@ class NivelarDatos():
             i=i+1
         la=len(aceptado)
         sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
-        fin=np.concatenate((aceptado,sospechoso))
-        fin.reshape(1, -1)
-        return fin
+        data=np.concatenate((aceptado,sospechoso))
+        return data
 
