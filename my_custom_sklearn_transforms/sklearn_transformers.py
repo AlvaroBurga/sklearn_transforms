@@ -2,7 +2,6 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn import preprocessing as pre
 from sklearn.preprocessing  import MinMaxScaler
 from sklearn.utils import resample
-import numpy as np
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
@@ -70,8 +69,7 @@ class NivelarDatos():
 
     def fit(self, X, y=None):
         return self
-    
-from sklearn.utils import resample
+
 class NivelarDatos():
     def __init__(self):
         self = self
@@ -80,7 +78,8 @@ class NivelarDatos():
         return self
     
     def transform(self, data):
-        b=data.copy()
+        # Primero copiamos el dataframe de datos de entrada 'X'
+        b=data
         i=0
         aceptado=[]
         sospechoso=[]
@@ -91,6 +90,5 @@ class NivelarDatos():
             i=i+1
         la=len(aceptado)
         sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
-        data=np.concatenate((aceptado,sospechoso))
+        data=aceptado+sospechoso
         return data
-
