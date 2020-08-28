@@ -64,14 +64,22 @@ class NivelarDatos():
     def fit(self, X, y=None):
         return self
     
+class NivelarDatos():
+    def __init__(self):
+        self = self
+
+    def fit(self, X, y=None):
+        return self
+    
     def transform(self, data):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        b=data
+        b=data.copy()
         i=0
         aceptado=[]
         sospechoso=[]
         for mayor in range(len(data[:,1])):
-            if(data[mayor,-1]=='Aceptado'): aceptado.append(b[i,:])
+            boolean=(data[mayor,-1]=='Aceptado')
+            if(boolean): aceptado.append(b[i,:])
             else: sospechoso.append(b[i,:])
             i=i+1
         la=len(aceptado)
@@ -79,5 +87,5 @@ class NivelarDatos():
         aceptado=np.asarray(aceptado)
         sospechoso=np.asarray(sospechoso)
         data=np.concatenate((aceptado,sospechoso))
-        return data    
+        return data
 
