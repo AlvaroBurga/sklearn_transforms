@@ -34,6 +34,26 @@ class LlenarMedia():
         data=np.concatenate((x,y),axis=1)
         return data
 
+class smoote():
+    def __init__(self):
+        self = self
+
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, d):
+        import numpy as np
+        import imblearn
+        from imblearn.over_sampling import SMOTE, ADASYN
+        # Primero copiamos el dataframe de datos de entrada 'X'
+        data=d.copy()
+        X=d[:,:-1]
+        y=d[:,-1]
+        oversample = SMOTE()
+        X, y = oversample.fit_resample(X, y)
+        y=np.row_stack(y)
+        data=np.concatenate((X, y),axis=1)
+        return data
 
 class NivelarDatos():
     def __init__(self, columns):
