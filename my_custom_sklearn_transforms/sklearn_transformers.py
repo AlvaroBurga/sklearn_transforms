@@ -17,7 +17,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         i=0
         aceptado=[]
         sospechoso=[]
-        for mayor in range(len(data[:,1])):
+        for mayor in range(len(b[:,1])):
             boolean=(b[mayor,-1]=='Aceptado')
             if(boolean): aceptado.append(b[i,:])
             else: sospechoso.append(b[i,:])
