@@ -10,22 +10,12 @@ class DropColumns(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
         return self
-
+    
     def transform(self, X):
-        # Primeiro realizamos a cópia do dataframe 'X' de entrada
-        b= X.copy()
-        i=0
-        aceptado=[]
-        sospechoso=[]
-        for mayor in range(len(b[:,1])):
-            boolean=(b[mayor,-1]=='Aceptado')
-            if(boolean): aceptado.append(b[i,:])
-            else: sospechoso.append(b[i,:])
-            i=i+1
-        la=len(aceptado)
-        sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
-        data=aceptado+sospechoso
-        return data
+        # Primero copiamos el dataframe de datos de entrada 'X'
+        data = X.copy()
+        # Devolvemos un nuevo dataframe de datos sin las columnas no deseadas
+        return data.drop(labels=self.columns, axis='columns')
 
 class LlenarMedia():
     def __init__(self):
@@ -44,35 +34,22 @@ class LlenarMedia():
         data=np.concatenate((x,y),axis=1)
         return data
 
-class NivelarDatos():
-    def __init__(self):
-        self = self
 
-    def fit(self, X, y=None):
-        return self
-    
 class NivelarDatos():
-    def __init__(self):
-        self = self
+    def __init__(self, columns):
+        self.columns = columns
 
     def fit(self, X, y=None):
         return self
 
-class NivelarDatos():
-    def __init__(self):
-        self = self
-
-    def fit(self, X, y=None):
-        return self
-    
-    def transform(self, data):
-        # Primero copiamos el dataframe de datos de entrada 'X'
-        b=data
+    def transform(self, X):
+        # Primeiro realizamos a cópia do dataframe 'X' de entrada
+        b= X.copy()
         i=0
         aceptado=[]
         sospechoso=[]
-        for mayor in range(len(data[:,1])):
-            boolean=(data[mayor,-1]=='Aceptado')
+        for mayor in range(len(b[:,1])):
+            boolean=(b[mayor,-1]=='Aceptado')
             if(boolean): aceptado.append(b[i,:])
             else: sospechoso.append(b[i,:])
             i=i+1
