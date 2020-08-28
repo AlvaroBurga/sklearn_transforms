@@ -73,7 +73,7 @@ class NivelarDatos():
     
     def transform(self, data):
         # Primero copiamos el dataframe de datos de entrada 'X'
-        b=data.copy()
+        b=data.reshape(1, -1)
         i=0
         aceptado=[]
         sospechoso=[]
