@@ -57,7 +57,6 @@ class LlenarMedia():
         data=np.concatenate((x,y),axis=1)
         return data
 
-    
 class NivelarDatos():
     def __init__(self):
         self = self
@@ -80,4 +79,5 @@ class NivelarDatos():
         aceptado=np.asarray(aceptado)
         sospechoso=np.asarray(sospechoso)
         data=np.concatenate((aceptado,sospechoso))
-        return data
+        return data    
+
