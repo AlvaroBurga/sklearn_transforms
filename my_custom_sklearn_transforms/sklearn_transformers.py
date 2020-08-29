@@ -64,6 +64,7 @@ class NivelarDatos():
 
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
+        import numpy as np
         b= X.copy()
         i=0
         aceptado=[]
