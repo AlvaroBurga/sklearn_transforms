@@ -70,8 +70,8 @@ class NivelarDatos():
         sospechoso=[]
         for mayor in range(len(b[:][1])):
             boolean=(b[mayor,-1]=='Aceptado')
-            if(boolean): aceptado.append(b[i],[:])
-            else: sospechoso.append(b[i],[:])
+            if(boolean): aceptado.append(b[i][:])
+            else: sospechoso.append(b[i][:])
             i=i+1
         la=len(aceptado)
         sospechoso=resample(sospechoso,replace=True,n_samples=la,random_state=123)
